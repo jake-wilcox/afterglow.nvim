@@ -1,3 +1,4 @@
+
 local colors = {}
 colors.get_colors = function()
     local mycolors = {} ---@type table<string,string>
@@ -5,147 +6,78 @@ colors.get_colors = function()
     if vim.o.background == 'dark' then
         mycolors = {
             vscNone = 'NONE',
-            vscFront = '#D4D4D4',
-            vscBack = '#1E1E1E',
+            vscFront = '#d6d6d6',
+            vscBack = '#2c2c2c',
 
-            vscTabCurrent = '#1E1E1E',
-            vscTabOther = '#2D2D2D',
-            vscTabOutside = '#252526',
+            vscTabCurrent = '#2c2c2c',
+            vscTabOther = '#3a3a3a', -- Assuming this is a slightly lighter shade for non-active tabs
+            vscTabOutside = '#202020', -- Assuming this is for even less focused elements
 
-            vscLeftDark = '#252526',
-            vscLeftMid = '#373737',
-            vscLeftLight = '#636369',
+            vscLeftDark = '#1c1c1c',
+            vscLeftMid = '#636363', -- Using bright black for mid elements
+            vscLeftLight = '#cacaca', -- Using normal white for lighter elements
 
-            vscPopupFront = '#BBBBBB',
-            vscPopupBack = '#272727',
-            vscPopupHighlightBlue = '#004b72',
-            vscPopupHighlightGray = '#343B41',
+            vscPopupFront = '#d6d6d6',
+            vscPopupBack = '#3a3a3a', -- Using a bright background assumption
+            vscPopupHighlightBlue = '#7eaac7',
+            vscPopupHighlightGray = '#636363', -- Using bright black as a gray
 
-            vscSplitLight = '#898989',
-            vscSplitDark = '#444444',
-            vscSplitThumb = '#424242',
+            vscSplitLight = '#d9d9d9',
+            vscSplitDark = '#1c1c1c',
+            vscSplitThumb = '#3a3a3a', -- Assuming thumb is a slider or similar UI element
 
-            vscCursorDarkDark = '#222222',
-            vscCursorDark = '#51504F',
-            vscCursorLight = '#AEAFAD',
-            vscSelection = '#264F78',
-            vscLineNumber = '#5A5A5A',
+            vscCursorDarkDark = '#2c2c2c',
+            vscCursorDark = '#d6d6d6',
+            vscCursorLight = '#d9d9d9',
+            vscSelection = '#7eaac7', -- Using blue for selection for a lack of direct equivalent
+            vscLineNumber = '#636363', -- Using bright black
 
-            vscDiffRedDark = '#4B1818',
-            vscDiffRedLight = '#6F1313',
-            vscDiffRedLightLight = '#FB0101',
-            vscDiffGreenDark = '#373D29',
-            vscDiffGreenLight = '#4B5632',
-            vscSearchCurrent = '#515c6a',
-            vscSearch = '#613315',
+            -- Adjusting to match the Alacritty colors more closely
+            vscDiffRedDark = '#74423f', -- dim red
+            vscDiffRedLight = '#bc5653', -- normal red
+            vscDiffGreenDark = '#5e6547', -- dim green
+            vscDiffGreenLight = '#909d63', -- normal green
+            vscSearchCurrent = '#556b79', -- dim blue as a placeholder
+            vscSearch = '#8b7653', -- dim yellow as a placeholder
 
-            vscGitAdded = '#81b88b',
-            vscGitModified = '#e2c08d',
-            vscGitDeleted = '#c74e39',
-            vscGitRenamed = '#73c991',
-            vscGitUntracked = '#73c991',
-            vscGitIgnored = '#8c8c8c',
-            vscGitStageModified = '#e2c08d',
-            vscGitStageDeleted = '#c74e39',
-            vscGitConflicting = '#e4676b',
-            vscGitSubmodule = '#8db9e2',
+            -- Git colors can be adjusted based on preference, using Alacritty's normal colors as inspiration
+            vscGitAdded = '#909d63',
+            vscGitModified = '#ebc17a',
+            vscGitDeleted = '#bc5653',
+            vscGitRenamed = '#7eaac7',
+            vscGitUntracked = '#86d3ce',
+            vscGitIgnored = '#636363',
+            vscGitStageModified = '#ebc17a',
+            vscGitStageDeleted = '#bc5653',
+            vscGitConflicting = '#aa6292',
+            vscGitSubmodule = '#7eaac7',
 
-            vscContext = '#404040',
-            vscContextCurrent = '#707070',
+            -- Other UI elements, adjusting based on Alacritty colors
+            vscContext = '#1c1c1c',
+            vscContextCurrent = '#2c2c2c',
 
-            vscFoldBackground = '#202d39',
+            vscFoldBackground = '#202020',
 
-            -- Syntax colors
-            vscGray = '#808080',
-            vscViolet = '#646695',
-            vscBlue = '#569CD6',
-            vscAccentBlue = '#4FC1FE',
-            vscDarkBlue = '#223E55',
-            vscMediumBlue = '#18a2fe',
-            vscLightBlue = '#9CDCFE',
-            vscGreen = '#6A9955',
-            vscBlueGreen = '#4EC9B0',
-            vscLightGreen = '#B5CEA8',
-            vscRed = '#F44747',
-            vscOrange = '#CE9178',
-            vscLightRed = '#D16969',
-            vscYellowOrange = '#D7BA7D',
-            vscYellow = '#DCDCAA',
-            vscDarkYellow = '#FFD602',
-            vscPink = '#C586C0',
+            -- Syntax colors, matched as closely as possible to Alacritty's definitions
+            vscGray = '#828282',
+            vscViolet = '#aa6292',
+            vscBlue = '#7eaac7',
+            vscAccentBlue = '#7eaac7',
+            vscDarkBlue = '#556b79', -- dim blue
+            vscMediumBlue = '#7eaac7',
+            vscLightBlue = '#7eaac7',
+            vscGreen = '#909d63',
+            vscBlueGreen = '#86d3ce',
+            vscLightGreen = '#909d63', -- reusing green for lack of light green
+            vscRed = '#bc5653',
+            vscOrange = '#ebc17a', -- using yellow as orange
+            vscLightRed = '#bc5653', -- reusing red for lack of light red
+            vscYellowOrange = '#ebc17a', -- using yellow as orange
+            vscYellow = '#ebc17a',
+            vscDarkYellow = '#ebc17a', -- no dark yellow in Alacritty, reused normal
+            vscPink = '#aa6292',
 
             -- Low contrast with default background
-            vscDimHighlight = '#51504F',
-        }
-    else
-        mycolors = {
-            vscNone = 'NONE',
-            vscFront = '#343434',
-            vscBack = '#FFFFFF',
-
-            vscTabCurrent = '#FFFFFF',
-            vscTabOther = '#CECECE',
-            vscTabOutside = '#E8E8E8',
-
-            vscLeftDark = '#F3F3F3',
-            vscLeftMid = '#E5E5E5',
-            vscLeftLight = '#F3F3F3',
-
-            vscPopupFront = '#000000',
-            vscPopupBack = '#F3F3F3',
-            vscPopupHighlightBlue = '#0064c1',
-            vscPopupHighlightGray = '#767676',
-
-            vscSplitLight = '#EEEEEE',
-            vscSplitDark = '#DDDDDD',
-            vscSplitThumb = '#DFDFDF',
-
-            vscCursorDarkDark = '#E5EBF1',
-            vscCursorDark = '#6F6F6F',
-            vscCursorLight = '#767676',
-            vscSelection = '#ADD6FF',
-            vscLineNumber = '#098658',
-
-            vscDiffRedDark = '#FFCCCC',
-            vscDiffRedLight = '#FFA3A3',
-            vscDiffRedLightLight = '#FFCCCC',
-            vscDiffGreenDark = '#DBE6C2',
-            vscDiffGreenLight = '#EBF1DD',
-            vscSearchCurrent = '#A8AC94',
-            vscSearch = '#F8C9AB',
-
-            vscGitAdded = '#587c0c',
-            vscGitModified = '#895503',
-            vscGitDeleted = '#ad0707',
-            vscGitRenamed = '#007100',
-            vscGitUntracked = '#007100',
-            vscGitIgnored = '#8e8e90',
-            vscGitStageModified = '#895503',
-            vscGitStageDeleted = '#ad0707',
-            vscGitConflicting = '#ad0707',
-            vscGitSubmodule = '#1258a7',
-
-            vscContext = '#D2D2D2',
-            vscContextCurrent = '#929292',
-
-            vscFoldBackground = '#e6f3ff',
-
-            -- Syntax colors
-            vscGray = '#000000',
-            vscViolet = '#000080',
-            vscBlue = '#0000FF',
-            vscDarkBlue = '#007ACC',
-            vscLightBlue = '#0451A5',
-            vscGreen = '#008000',
-            vscBlueGreen = '#16825D',
-            vscLightGreen = '#098658',
-            vscRed = '#FF0000',
-            vscOrange = '#C72E0F',
-            vscLightRed = '#A31515',
-            vscYellowOrange = '#800000',
-            vscYellow = '#795E26',
-            vscPink = '#AF00DB',
-
             -- Low contrast with default background
             vscDimHighlight = '#B2DFDB',
         }
